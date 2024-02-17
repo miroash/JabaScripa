@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Лаб 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+<div id="myDIV" class="header">
+   <center><h1>Список дел</h1></center>
+    <form>
+        <input type="text" id="myInput" placeholder="Введите свои дела">
+            <span onclick="newElement()" class="addBtn">Создать</span>
+    </form>
+	</div>
+            <ul id ="myUL">
+                <li>Сделать зарядку</li>
+                <li>Попить воды</li>
+                <li>Полететь на луну</li>
+            </ul>
+		<script>
+		
+var listItems = document.querySelectorAll("li");
+for (var i = 0; i < listItems.length; i++) {
+  var closeBtn = document.createElement("span");
+  closeBtn.textContent = "\u00D7";
+  closeBtn.className = "close";
+  listItems[i].appendChild(closeBtn);
+}
+
+var closeBtns = document.querySelectorAll(".close");
+for (var j = 0; j < closeBtns.length; j++) {
+  closeBtns[j].addEventListener("click", function() {
+    this.parentElement.style.display = "none";
+  });
+}
+
+var ul = document.querySelector("ul");
+ul.addEventListener("click", function(ev) {
+  if (ev.target.tagName === "LI") {
+    ev.target.classList.toggle("checked");
+  }
+}, false);
+
+function newElement() {
+  var inputValue = document.getElementById("myInput").value.trim();
+  if (!inputValue) {
+    alert("Вам нужно что-то написать!");
+    return;
+  }
+  var li = document.createElement("li");
+  li.textContent = inputValue;
+  document.getElementById("myUL").appendChild(li);
+  document.getElementById("myInput").value = "";
+
+  var closeBtn = document.createElement("span");
+  closeBtn.textContent = "\u00D7";
+  closeBtn.className = "close";
+  li.appendChild(closeBtn);
+  closeBtn.addEventListener("click", function() {
+    this.parentElement.style.display = "none";
+  });
+}
+</script>
+</body>
+</html>
