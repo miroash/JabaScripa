@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Лаб 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+<div id="myDIV" class="header">
+    <center><h1>Список дел</h1></center>
+    <form>
+        <input type="text" id="myInput" placeholder="Введите свои дела">
+        <span onclick="newElement()" class="addBtn">Создать</span>
+        <span onclick="deleteAll()" class="deleteAllBtn">Очистить все</span>
+    </form>
+</div>
+<ul id="myUL">
+    <li>Сделать зарядку</li>
+    <li>Попить воды</li>
+    <li>Полететь на луну</li>
+</ul>
+<div class="button-container">
+    <button onclick="showAll()">Все</button>
+    <button onclick="showCompleted()">Сделано</button>
+    <button onclick="showUncompleted()">Не сделано</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
